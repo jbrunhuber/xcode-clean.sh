@@ -31,6 +31,8 @@ remove_contents() {
         printf "Clearing $arg_name in ${arg_path}/* (freeing ${text_bold}${size}${text_normal} disk space)\n"
         rm -Rf "$arg_path"/*
     fi
+    # Prevent problem that simulators launch with an error
+    xcrun simctl erase all
 }
 
 do_dsym_backup() {
